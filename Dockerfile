@@ -8,6 +8,10 @@ WORKDIR /usr/src/app
 COPY project.json /usr/src/app
 COPY NuGet.Config /usr/src/app
 
+ENV ASPNETCORE_URLS="http://*:3000"
+ENV ASPNETCORE_ENVIRONMENT="Development"
+ENV USE_POLLING_FILE_WATCHER=1
+
 RUN dotnet restore
 
 # Bundle app source
@@ -15,5 +19,5 @@ COPY . /usr/src/app
 
 EXPOSE 3000
 
-ENTRYPOINT ["dotnet", "run", "http://0.0.0.0:3000", "Development"]
+ENTRYPOINT ["dotnet", "watch"]
 

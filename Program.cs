@@ -8,13 +8,13 @@ namespace HelloMvc
     {
         public static void Main(string[] args)
         {
-            var url = args[0];
-            var env = args[1];
+            //var url = args[0];
+            //var env = args[1];
             
             var host = new WebHostBuilder()
                         .UseKestrel()
-                        .UseUrls(url)
-                        .UseEnvironment(env)
+                        .UseUrls("http://*:3000")
+                        .UseEnvironment("Development")
                         .UseContentRoot(Directory.GetCurrentDirectory())
                         .UseStartup<Startup>()
                         .Build();
